@@ -1,0 +1,34 @@
+
+def respond(user_input):
+  user_input = user_input.lower()
+
+  greetings = ["hello", "hi", "hey"]
+  farewells = ["bye", "goodbye", "see you"]
+  how_are_you = ["how are you", "how are you doing"]
+
+  if any(greet in user_input for greet in greetings):
+      return "Hi there! "
+  elif any(phrase in user_input for phrase in how_are_you):
+      return "I'm doing great, thanks for asking! How about you?"
+  elif "your name" in user_input:
+      return "I'm ChatBuddy, your friendly chatbot!"
+  elif "help" in user_input:
+      return "Sure! You can say things like 'hello', 'how are you', or 'bye'."
+  elif any(bye in user_input for bye in farewells):
+      return "Goodbye! Have a great day! "
+  else:
+      return "Hmm... I didn't quite get that. Try asking something else!"
+
+def chatbot():
+  print("ChatBuddy: Hello! I'm ChatBuddy. Let's chat! (Type 'bye' to exit)")
+
+  while True:
+      user_input = input("You: ").strip()
+      response = respond(user_input)
+      print(" ChatBuddy:", response)
+
+      if "bye" in user_input.lower() or "goodbye" in user_input.lower():
+          break
+
+
+chatbot()
